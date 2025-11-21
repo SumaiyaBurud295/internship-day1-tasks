@@ -1,0 +1,67 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class CrudDemo {
+    public static void main(String[] args) {
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            Class.forName("org.postgresql.Driver");
+
+            String url = "jdbc:postgresql://localhost:5432/internship_day1";
+            String user = "postgres";
+            String password = "sumaiya";
+
+            conn = DriverManager.getConnection(url, user, password);
+            System.out.println("PostgreSQL Database Connected!\n");
+
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery("SELECT * FROM departments");
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String dept_name = rs.getString("dept_name");
+                String location = rs.getString("location");
+
+                System.out.println(id + " | " + dept_name + " | " + location);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println("\nAll Created Objects Closed.");
+
+        }
+
+    }
+}
