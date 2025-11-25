@@ -1,5 +1,5 @@
-// Product Class - Represents an item in a store
-public class Product {
+package Task_OOPs;
+class Product {
 
     public static void main(String[] args) {
 
@@ -25,7 +25,7 @@ public class Product {
     private double price;
     private int quantity;
 
-    // Constructor to initialize product details
+    // Constructor
     public Product(int id, String name, double price, int quantity) {
         this.id = id;
         this.name = name;
@@ -33,18 +33,18 @@ public class Product {
         this.quantity = quantity;
     }
 
-    // Method: Show product details
+    // Method1: Show product details
     public void displayProduct() {
         System.out.println(this.toString());
     }
 
-    // Method: Increase stock quantity
+    // Method2: Increase stock quantity
     public void addStock(int amount) {
         quantity += amount;
         System.out.println(amount + " items added. New quantity: " + quantity);
     }
 
-    // Method: Purchase product (reduce quantity)
+    // Method3: Purchase product (reduce quantity)
     public void buyProduct(int amount) {
         if (amount <= quantity) {
             quantity -= amount;
@@ -54,7 +54,7 @@ public class Product {
         }
     }
 
-    // Getters & Setters (for accessing private fields)
+    // Getters & Setters
     public int getId() {
         return id;
     }
@@ -87,7 +87,7 @@ public class Product {
         this.quantity = quantity;
     }
 
-    // toString() method - neatly prints product info
+    // toString method
     @Override
     public String toString() {
         return "Product {\n" +

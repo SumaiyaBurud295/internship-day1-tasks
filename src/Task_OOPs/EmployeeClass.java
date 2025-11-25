@@ -1,5 +1,5 @@
-// Employee class showing Encapsulation + Methods
-public class Employee {
+package Task_OOPs;
+class Employee {
 
     public static void main(String[] args) {
 

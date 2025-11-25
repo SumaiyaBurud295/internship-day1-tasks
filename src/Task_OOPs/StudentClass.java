@@ -1,5 +1,5 @@
-// Student class showing Encapsulation + Methods
-public class Student {
+package Task_OOPs;
+class Student {
     public static void main(String[] args) {
 
         //Creating a Student object
